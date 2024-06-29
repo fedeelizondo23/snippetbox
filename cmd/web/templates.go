@@ -8,4 +8,5 @@ import "github.com/fedeelizondo23/snippetbox/internal/models"
 // to it as the build progresses.
 type templateData struct {
 	Snippet models.Snippet
+	Snippets []models.Snippet
 }
