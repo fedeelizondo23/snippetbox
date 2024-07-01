@@ -42,8 +42,8 @@ func main() {
 
 	// And add it to the application dependencies.
 	app := &application{
-		logger:   logger,
-		snippets: &models.SnippetModel{DB: db},
+		logger:        logger,
+		snippets:      &models.SnippetModel{DB: db},
 		templateCache: templateCache,
 	}
 
