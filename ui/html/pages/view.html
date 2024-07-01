@@ -9,14 +9,6 @@
         </div>
         <pre><code>{{.Content}}</code></pre>
         <div class='metadata'>
-            <!-- Use the new template function here -->
-            <!-- 
-                A nice feature of pipelining is that you can make an arbitrarily long chain of 
-                template functions which use the output from one as the input for the next. 
-                For example, we could pipeline the output from our humanDate function to the inbuilt 
-                printf function like so:
-                <time>{{.Created | humanDate | printf "Created: %s"}}</time>
-            -->
             <time>Created: {{humanDate .Created}}</time>
             <time>Expires: {{humanDate .Expires}}</time>
         </div>
