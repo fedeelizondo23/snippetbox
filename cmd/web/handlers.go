@@ -56,11 +56,6 @@ func (app *application) snippetCreate(w http.ResponseWriter, r *http.Request) {
 	app.render(w, r, http.StatusOK, "create.html", data)
 }
 
-// Update our snippetCreateForm struct to include struct tags which tell the
-// decoder how to map HTML from values into the different struct fields. So, for
-// example, here we're telling the decoder to store the value from the HTML form
-// input with the name "title" in the Title field. The struct tag `form:"-"`
-// tells the decoder to completely ignore a field during decodign.
 type snippetCreateForm struct {
 	Title               string `form:"title"`
 	Content             string `form:"content"`
@@ -77,7 +72,6 @@ func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	// Then validate and use the data as normal...
 	form.CheckField(validator.NotBlank(form.Title), "title", "This field cannot be blank")
 	form.CheckField(validator.MaxChars(form.Title, 100), "title", "This field cannot be more than 100 characters long")
 	form.CheckField(validator.NotBlank(form.Content), "content", "This field cannot be blank")

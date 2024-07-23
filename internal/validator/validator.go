@@ -20,8 +20,6 @@ func (v *Validator) Valid() bool {
 // AddFieldError() adds an error message to the FieldErrors map (so long as no
 // entry already exists for the given key).
 func (v *Validator) AddFieldError(key, message string) {
-	// Note: We need to initialize the map first, if it isn't already
-	// initialized.
 	if v.FieldErrors == nil {
 		v.FieldErrors = make(map[string]string)
 	}

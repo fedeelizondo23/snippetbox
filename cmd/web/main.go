@@ -14,7 +14,6 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-// Add a formDecoder field to hold a form.Decoder instance.
 type application struct {
 	logger        *slog.Logger
 	snippets      *models.SnippetModel
@@ -42,10 +41,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Initialize a decoder instance...
 	formDecoder := form.NewDecoder()
 
-	// And add it to the application dependencies.
 	app := &application{
 		logger:        logger,
 		snippets:      &models.SnippetModel{DB: db},
